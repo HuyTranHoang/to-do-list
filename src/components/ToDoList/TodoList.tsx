@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
+
 import TaskInput from '../TaskInput'
 import TaskList from '../TaskList'
 import { Todo } from '../../@types/todo.type'
+
 import styles from './todoList.module.scss'
 
 // interface HandleNewTodos {
@@ -42,14 +44,18 @@ export default function ToDoList() {
   }
 
   const handleDoneTodo = (id: string, done: boolean) => {
-    setTodos((prev) => {
-      return prev.map((todo) => {
+    if (currentTodo) setCurrentTodo(null)
+    const handler = (todoObj: Todo[]) => {
+      return todoObj.map((todo) => {
         if (todo.id === id) {
           return { ...todo, done }
         }
         return todo
       })
-    })
+    }
+
+    setTodos(handler)
+    syncReactToLocal(handler)
   }
 
   const startEditTodo = (id: string) => {
