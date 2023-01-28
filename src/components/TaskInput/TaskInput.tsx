@@ -32,6 +32,7 @@ export default function TaskInput(props: TaskInputProps) {
     }
   }
 
+
   return (
     <div className='mb-2'>
       <h1 className={styles.title}>Todo list typescript</h1>
