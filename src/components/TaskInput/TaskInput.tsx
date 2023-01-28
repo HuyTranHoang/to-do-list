@@ -18,11 +18,11 @@ export default function TaskInput(props: TaskInputProps) {
   const [name, setName] = useState<string>('')
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    if (name === '') return
     if (currentTodo) {
       finishEditTodo()
       if (name) setName('')
     } else {
+      if (name === '') return
       addTodo(name)
       setName('')
     }
