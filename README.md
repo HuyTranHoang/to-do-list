@@ -1,2 +1,2 @@
 # Simple Todos App
-Used to learn and get used to React, Typescript
+Used to learn and get familiar with React, Typescript
